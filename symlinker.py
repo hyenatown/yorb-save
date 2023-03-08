@@ -5,6 +5,7 @@
 #Includes
 import os
 import shutil
+import json
 
 # Simply asks the user to put in a path. FIXME: Replace dest_name with working directory later on.
 archive_name = os.path.abspath(os.curdir)
@@ -16,10 +17,17 @@ dest_name = os.path.join(archive_name, '') + os.path.basename(origin_name)
 #Print if the checks pass.
 print('Moving file(s), creating symlink...')
 
-# TODO: Copy information regarding the original file (permissions, ownership, attributes) to the Archive's file-tracker-JSON.
-# TODO: Find a module that makes reading JSON files EZ.
+# TODO: Stat the original file, save to the Archive's file-tracker-JSON.
 # TODO: I really need to come up with a better name than 'Archive'.
 # Exits with error if it somehow can't access or edit the JSON.
+archive_index_entry = {
+    os.path.basename(origin_name) : [
+        {
+        'permissions' : '',
+        'ownership' : '' 
+        }
+    ]
+}
 
 # TODO: If the operation lasts longer than two seconds, display a progress bar.
 # TODO: Find out what module could print a progress bar.
