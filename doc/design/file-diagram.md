@@ -28,8 +28,8 @@ Here's a funny ASCII diagram.
 │Johnny-Hills..json◄├─┘ ┌─────┤Guy-Manlove.json   ├─┘                                  │
 │                   │   │     │                   │                                    │
 │Guy-Manlove.json◄──┼───┘ ┌───┤Willie-Jabbs.json  │                                    │
-│                   │     │   │                   │                                    │
-│Willie-Jabbs.json◄─┼─────┘   │                   │                                    │
+│                   │     │   ├───────────────────┤                                    │
+│Willie-Jabbs.json◄─┼─────┘   │tracked-files.json │                                    │
 │                   │         │                   │                                    │
 │                   │         │                   │                                    │
 └───────────────────┘         │                   │                                    │
