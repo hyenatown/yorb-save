@@ -3,23 +3,27 @@
 # That said, please feel free to contribute to the main project ("yorb-save"), until a license is finalized.
 # Written by Collyn Townley, (ytbl) 2023
 import json
+import symlinker
+import indexer
 # This is the main bit that asks what you wanna do.
 print(
     'Yorb 0.0.1-dev\n'
     'Welcome! What do you wish to do?\n'
-    '[1] Check Links\n'
-    '[2] Delete Links\n'
-    '[3] Create New Archive\n'
+    '[1] Check Paths\n'
+    '[2] Delete Path\n'
+    '[3] Link a Path\n'
     '[4] Open Existing Archive\n'
     '[q] Exit'
 )
+# TODO: This is turing into an if-tree mess so I'll redo it later. It technically works.
 def job_selection():
     job = ['q','1','2','3','4']
     job_key = input("Choose an option: ")
     if job_key == job[0]:
         exit("Bye.")
-    else:
-        print("Try again.")
-        job_selection()
 job_selection()
-exit()
+if job_key == job[2]:
+    add_symlink()
+else:
+    print("Try again.")
+    job_selection()
