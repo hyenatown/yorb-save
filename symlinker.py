@@ -7,10 +7,14 @@ import os
 import shutil
 import json
 
-# Simply asks the user to put in a path. FIXME: Replace dest_name with working directory later on.
-archive_name = os.path.abspath(os.curdir)
-origin_name = input('Please enter the path of the ORIGIN file or directory:')
-dest_name = os.path.join(archive_name, '') + os.path.basename(origin_name)
+# Simply asks the user to put in a path.
+# Path of the 'working directory' - a.k.a. where the files and index are
+archive_path = os.path.abspath(os.curdir)
+# The path to the file being moved and symlinked.
+origin_path = input('Please enter the path of the ORIGIN file or directory:')
+# The working directory again, however, formatted so the original file name acts as the final destination.
+dest_path = os.path.join(archive_path, '') + os.path.basename(origin_path)
+
 # TODO: Check if paths have enough disk space to perform a switcheroo. 
 # Exits with error if remaining space is only 5% bigger than the total size of the files(s).
 # Skipped if same-filesystem.
