@@ -59,8 +59,8 @@ def file_tracker_delete():
 # TODO: Find out what module could print a progress bar.
 
 # Move the origin to the destination, and then replace the origin with a symlink.
-shutil.move(origin_name,dest_name)
-os.symlink(dest_name,origin_name)
+shutil.move(origin_path,dest_path)
+os.symlink(dest_path,origin_path)
 print('Done!')
-print('Symlink created at: ' + origin_name)
+print('Symlink created at: ' + origin_path)
 exit()
