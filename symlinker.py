@@ -2,8 +2,6 @@
 # Contribution is encouraged, but code is not yet to be released.
 # That said, please feel free to contribute to the main project ("yorb-save"), until a license is finalized.
 # Written by Collyn Townley, (ytbl) 2023
-
-#Includes
 import json
 from os import path, symlink, curdir
 from shutil import move
@@ -14,30 +12,19 @@ from psutil import disk_usage
 # TODO: Add exception when a linked path is trying to be linked a second time.
 # TODO: Exit if the remaining disk space is larger than the working directory free space.
 
-# Simply asks the user to put in a path.
-# Path of the 'working directory' - a.k.a. where the files and index are
-archive_path = path.abspath(curdir)
-# The path to the path being moved and symlinked.
-origin_path = input('Please enter the origin path:')
-# The working directory again, however, formatted so the original path name acts as the final destination.
-dest_path = path.join(archive_path, '') + path.basename(origin_path)
-
-############################################################################################
 # Exits with error if remaining disk space is only 2%.
-archive_path = path.abspath(curdir)
+archive_path = path.abspath(curdir) # Defines the working directory
 if disk_usage(archive_path).percent > 98:
     exit("Insufficent space in archive location to continue. Exiting.")
 else:
     print('Moving file(s), creating symlink...')
 
-# TODO: Imports the index.json
-def file_tracker_read():
+# JSON Import/Export
+def file_tracker_read(): # TODO: Import
     file_index = open(index.json, 'r')
     json.loads(file_index)
     file_index.close()
-
-# TODO: Saves the index.json (overwrites)
-def file_tracker_delete():
+def file_tracker_delete(): # TODO: Export (overwrites)
     file_index = open('index.json', 'w')
     json.dumps(file_index)
     file_index.close()
