@@ -1,6 +1,7 @@
 # This software is under a Yet-To-Be-Licensed (YTBL) meta-license.
-# Distribution, copying, or forking is still to be determined, so cool your jets.
+# Contribution is encouraged, but code is not yet to be released.
 # That said, please feel free to contribute to the main project ("yorb-save"), until a license is finalized.
+# Written by Collyn Townley, (ytbl) 2023
 
 #Includes
 # import numpy # If I decided to write the menu as an array.
