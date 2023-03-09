@@ -12,6 +12,7 @@ from psutil import disk_usage
 # TODO: If the operation lasts longer than two seconds, display a progress bar; Find out what module could print a progress bar.
 # TODO: Add exception for linking to a path WITHIN archive_path.
 # TODO: Add exception when a linked path is trying to be linked a second time.
+# TODO: Exit if the remaining disk space is larger than the working directory free space.
 
 # Simply asks the user to put in a path.
 # Path of the 'working directory' - a.k.a. where the files and index are
@@ -23,8 +24,7 @@ dest_path = path.join(archive_path, '') + path.basename(origin_path)
 
 ############################################################################################
 # Exits with error if remaining disk space is only 2%.
-# TODO: Exit if the remaining disk space is larger than the working directory free space.
-############################################################################################
+archive_path = path.abspath(curdir)
 if disk_usage(archive_path).percent > 98:
     exit("Insufficent space in archive location to continue. Exiting.")
 else:
