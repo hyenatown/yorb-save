@@ -19,11 +19,14 @@ origin_path = input('Please enter the path of the ORIGIN file or directory:')
 # The working directory again, however, formatted so the original file name acts as the final destination.
 dest_path = os.path.join(archive_path, '') + os.path.basename(origin_path)
 
-# Exits with error if remaining space is only 5% bigger than the total size of the files(s).
-# Skipped if same-filesystem.
-
-#Print if the checks pass.
-print('Moving file(s), creating symlink...')
+############################################################################################
+# Exits with error if remaining disk space is only 2%.
+# TODO: Exit if the remaining disk space is larger than the working directory free space.
+############################################################################################
+if disk_usage(archive_path).percent > 98:
+    exit("Insufficent space in archive location to continue. Exiting.")
+else:
+    print('Moving file(s), creating symlink...')
 
 # TODO: Tracks a file
 def file_tracker_add():
