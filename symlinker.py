@@ -9,8 +9,9 @@ from os import path, symlink, curdir
 from shutil import move
 from psutil import disk_usage
 
-# TODO: If the operation lasts longer than two seconds, display a progress bar. Find out what module could print a progress bar.
-# TODO: Check if paths have enough disk space to perform a switcheroo. 
+# TODO: If the operation lasts longer than two seconds, display a progress bar; Find out what module could print a progress bar.
+# TODO: Add exception for linking to a path WITHIN archive_path.
+# TODO: Add exception when a linked path is trying to be linked a second time.
 
 # Simply asks the user to put in a path.
 # Path of the 'working directory' - a.k.a. where the files and index are
