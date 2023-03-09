@@ -4,8 +4,8 @@
 # Written by Collyn Townley, (ytbl) 2023
 
 #Includes
-import os
 import json
+from os import path, symlink, curdir
 from shutil import move
 from psutil import disk_usage
 
@@ -14,11 +14,11 @@ from psutil import disk_usage
 
 # Simply asks the user to put in a path.
 # Path of the 'working directory' - a.k.a. where the files and index are
-archive_path = os.path.abspath(os.curdir)
+archive_path = path.abspath(curdir)
 # The path to the file being moved and symlinked.
 origin_path = input('Please enter the path of the ORIGIN file or directory:')
 # The working directory again, however, formatted so the original file name acts as the final destination.
-dest_path = os.path.join(archive_path, '') + os.path.basename(origin_path)
+dest_path = path.join(archive_path, '') + path.basename(origin_path)
 
 ############################################################################################
 # Exits with error if remaining disk space is only 2%.
@@ -43,7 +43,7 @@ def file_tracker_delete():
 
 # Move the origin to the destination, and then replace the origin with a symlink.
 move(origin_path,dest_path)
-os.symlink(dest_path,origin_path)
+symlink(dest_path,origin_path)
 print('Done!')
 print('Symlink created at: ' + origin_path)
 exit()
