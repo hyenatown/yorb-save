@@ -1,4 +1,5 @@
 Here's a funny ASCII diagram.
+If you're viewing this on GitHub, it will look like crap.
 ```
                               ┌────────────────────────────────────────────────────────┐
                               │                     Archive Directory                  │
