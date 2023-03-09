@@ -28,22 +28,16 @@ if disk_usage(archive_path).percent > 98:
 else:
     print('Moving file(s), creating symlink...')
 
-# TODO: Tracks a file
-def file_tracker_add():
-    file_index = open(index.json, 'a')
-    pass
-    file_index.close()
-
-# TODO: Reads the tracked file list
+# TODO: Imports the index.json
 def file_tracker_read():
     file_index = open(index.json, 'r')
-    pass
+    json.loads(file_index)
     file_index.close()
 
-# TODO: Deletes an existing entry
+# TODO: Saves the index.json (overwrites)
 def file_tracker_delete():
-    file_index = open('index.json', 'a')
-    pass
+    file_index = open('index.json', 'w')
+    json.dumps(file_index)
     file_index.close()
 
 # Move the origin to the destination, and then replace the origin with a symlink.
