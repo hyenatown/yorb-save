@@ -27,9 +27,7 @@ print('Moving file(s), creating symlink...')
 # TODO: Tracks a file
 def file_tracker_add():
     file_index = open(index.json, 'a')
-    file_index.write(
-        origin_path
-    )
+    pass
     file_index.close()
 
 # TODO: Reads the tracked file list
