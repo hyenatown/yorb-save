@@ -1,5 +1,5 @@
 # This software is under a Yet-To-Be-Licensed (YTBL) meta-license.
-# Contribution is encouraged, duplication and distribution is prohibited.
+# Contribution is encouraged, but code is not yet to be released.
 # That said, please feel free to contribute to the main project ("yorb-save"), until a license is finalized.
 
 #Includes
