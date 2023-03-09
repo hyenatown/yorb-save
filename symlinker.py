@@ -18,20 +18,42 @@ dest_path = os.path.join(archive_path, '') + os.path.basename(origin_path)
 # TODO: Check if paths have enough disk space to perform a switcheroo. 
 # Exits with error if remaining space is only 5% bigger than the total size of the files(s).
 # Skipped if same-filesystem.
+
 #Print if the checks pass.
 print('Moving file(s), creating symlink...')
 
 # TODO: Stat the original file, save to the Archive's file-tracker-JSON.
-# TODO: I really need to come up with a better name than 'Archive'.
-# Exits with error if it somehow can't access or edit the JSON.
-archive_index_entry = {
-    os.path.basename(origin_name) : [
-        {
-        'permissions' : '',
-        'ownership' : '' 
-        }
-    ]
-}
+
+# AUTHORNOTE: This is a messy lil implementation of what I wanted to do, but I'm starting to sus out functions proper.
+# ##: I dunno how to do that however. I'm going to have to read up more on file handling.
+# archive_index_entry = {
+#     os.path.basename(origin_path) : [
+#         {
+#         'permissions' : '',
+#         'ownership' : '' 
+#         }
+#     ]
+# }
+
+# TODO: Tracks a file
+def file_tracker_add():
+    file_index = open(index.json, 'a')
+    file_index.write(
+        origin_path
+    )
+    file_index.close()
+
+# TODO: Reads the tracked file list
+def file_tracker_read():
+    file_index = open(index.json, 'r')
+    pass
+    file_index.close()
+
+# TODO: Deletes an existing entry
+def file_tracker_delete():
+    file_index = open('index.json', 'a')
+    pass
+    file_index.close()
 
 # TODO: If the operation lasts longer than two seconds, display a progress bar.
 # TODO: Find out what module could print a progress bar.
