@@ -16,7 +16,7 @@ from psutil import disk_usage
 # Path of the 'working directory' - a.k.a. where the files and index are
 archive_path = path.abspath(curdir)
 # The path to the file being moved and symlinked.
-origin_path = input('Please enter the path of the ORIGIN file or directory:')
+origin_path = input('Please enter the origin path:')
 # The working directory again, however, formatted so the original file name acts as the final destination.
 dest_path = path.join(archive_path, '') + path.basename(origin_path)
 
