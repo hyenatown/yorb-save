@@ -3,9 +3,6 @@
 # That said, please feel free to contribute to the main project ("yorb-save"), until a license is finalized.
 # Written by Collyn Townley, (ytbl) 2023
 
-#Includes
-# import numpy # If I decided to write the menu as an array.
-
 # This is the main bit that asks what you wanna do.
 print(
     'Yorb 0.0.1-dev\n'
