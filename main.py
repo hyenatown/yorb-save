@@ -21,5 +21,6 @@ def job_selection():
         exit("Bye.")
     else:
         print("Try again.")
+job_selection()
         job_selection()
 exit()
