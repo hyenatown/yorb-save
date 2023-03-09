@@ -13,7 +13,6 @@ print(
     '[4] Open Existing Archive\n'
     '[q] Exit'
 )
-job_selection()
 def job_selection():
     job = ['q','1','2','3','4']
     job_key = input("Choose an option: ")
