@@ -10,6 +10,16 @@ print(
     '[1] Check Links\n'
     '[2] Delete Links\n'
     '[3] Create New Archive\n'
-    '[4] Open Existing Archive'
+    '[4] Open Existing Archive\n'
+    '[q] Exit'
 )
+job_selection()
+def job_selection():
+    job = ['q','1','2','3','4']
+    job_key = input("Choose an option: ")
+    if job_key == job[0]:
+        exit("Bye.")
+    else:
+        print("Try again.")
+        job_selection()
 exit()
