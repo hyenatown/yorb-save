@@ -17,6 +17,8 @@ archive_path = path.abspath(curdir) # Defines the working directory
 if disk_usage(archive_path).percent > 98:
     exit("Insufficent space in archive location to continue. Exiting.")
 else:
+    origin_path = input('Please enter the origin path:')    # Path being moved and symlinked.
+    dest_path = path.join(archive_path, '') + path.basename(origin_path)    # Working dir + path basename.
     print('Moving file(s), creating symlink...')
 
 # JSON Import/Export
