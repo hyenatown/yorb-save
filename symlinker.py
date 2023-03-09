@@ -47,7 +47,7 @@ def file_tracker_delete():
     file_index.close()
 
 # Move the origin to the destination, and then replace the origin with a symlink.
-shutil.move(origin_path,dest_path)
+move(origin_path,dest_path)
 os.symlink(dest_path,origin_path)
 print('Done!')
 print('Symlink created at: ' + origin_path)
