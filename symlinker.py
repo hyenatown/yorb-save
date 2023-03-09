@@ -4,8 +4,9 @@
 
 #Includes
 import os
-import shutil
 import json
+from shutil import move
+from psutil import disk_usage
 
 # TODO: If the operation lasts longer than two seconds, display a progress bar. Find out what module could print a progress bar.
 # TODO: Check if paths have enough disk space to perform a switcheroo. 
