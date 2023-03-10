@@ -24,5 +24,5 @@ def add_symlink():
 # Move the origin to the destination, and then replace the origin with a symlink.
 move(origin_path,dest_path)
 symlink(dest_path,origin_path)
-print('Done!')
+print('Done!\a')
 exit('Symlink created at: ' + origin_path)
