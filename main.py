@@ -3,8 +3,9 @@
 # That said, please feel free to contribute to the main project ("yorb-save"), until a license is finalized.
 # Written by Collyn Townley, (ytbl) 2023
 import json
-import symlinker
-import indexer
+# import indexer # Not yet.
+from symlinker import add_symlink
+
 # This is the main bit that asks what you wanna do.
 print(
     'Yorb 0.0.1-dev\n'
