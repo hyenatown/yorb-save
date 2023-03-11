@@ -19,11 +19,17 @@ print(
 def job_selection():
     job = ['q','1','2','3','4']
     job_key = input("Choose an option: ")
-    if job_key == job[0]:
-        exit("Bye.")
-job_selection()
+
+if job_key == job[0]:
+    exit("Bye.")
+if job_key == job[1]:
+    print("This job is Check Paths")
 if job_key == job[2]:
-    add_symlink()
-else:
-    print("Try again.")
-    job_selection()
+    print("This job is Delete Path")
+if job_key == job[3]:
+    print("This job is Link a Path")
+if job_key == job[4]:
+    print("This job is Open Existing Archive")
+
+print("Try again.")
+job_selection()
