@@ -10,8 +10,8 @@ print(
     'Yorb 0.0.1-dev\n'
     'Welcome! What do you wish to do?\n'
     '[1] Check Paths\n'
-    '[2] Delete Path\n'
-    '[3] Link a Path\n'
+    '[2] Link a Path\n'
+    '[3] Delete Path\n'
     '[4] Open Existing Archive\n'
     '[q] Exit'
 )
@@ -25,10 +25,9 @@ def job_selection():
         print("This job is Check Paths")
         exit()
     if job_key == job[2]:
-        print("This job is Delete Path")
-        exit()
+        add_symlink()
     if job_key == job[3]:
-        print("This job is Link a Path")
+        print("This job is Delete Path")
         exit()
     if job_key == job[4]:
         print("This job is Open Existing Archive")

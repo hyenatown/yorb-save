@@ -19,11 +19,7 @@ def add_symlink():
     else:
         origin_path = input('Please enter the origin path:')    # Path being moved and symlinked.
         dest_path = path.join(archive_path, '') + path.basename(origin_path)    # Working dir + path basename.
-        print('Moving file(s), creating symlink...')
-
-# Move the origin to the destination, and then replace the origin with a symlink.
-def create_symlink():
-    move(origin_path,dest_path) 
-    symlink(dest_path,origin_path)   
-    print('Done!\a')   
-    exit('Symlink created at: ' + origin_path)
+        move(origin_path,dest_path) 
+        symlink(dest_path,origin_path)   
+        print('Done!\a')   
+        exit('Symlink created at: ' + origin_path)
