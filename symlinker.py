@@ -10,6 +10,7 @@ from psutil import disk_usage
 # TODO: Add exception for linking to a path WITHIN archive_path.
 # TODO: Add exception when a linked path is trying to be linked a second time.
 # TODO: Exit if the path is larger than the working directory free space.
+# TODO: Ask if user wants to link another file before trying to exit.
 
 # Exits with error if remaining disk space is only 2%.
 def add_symlink():
