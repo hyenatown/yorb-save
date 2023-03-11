@@ -14,12 +14,12 @@ from psutil import disk_usage
 
 # Exits with error if remaining disk space is only 2%.
 def add_symlink():
-    archive_path = path.abspath(curdir) # Defines the working directory
+    archive_path = path.abspath(curdir)
     if disk_usage(archive_path).percent > 98:
         exit("Insufficent space in archive location to continue. Exiting.")
     else:
-        origin_path = input('Please enter the origin path:')    # Path being moved and symlinked.
-        dest_path = path.join(archive_path, '') + path.basename(origin_path)    # Working dir + path basename.
+        origin_path = input('Please enter the origin path:')
+        dest_path = path.join(archive_path, '') + path.basename(origin_path)
         move(origin_path,dest_path) 
         symlink(dest_path,origin_path)   
         print('Done!\a')   

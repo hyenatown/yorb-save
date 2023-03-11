@@ -6,7 +6,6 @@ import json
 import indexer
 import symlinker
 
-# This is the main bit that asks what you wanna do.
 print(
     'Yorb 0.0.1-dev\n'
     'Welcome! What do you wish to do?\n'

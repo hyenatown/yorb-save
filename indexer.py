@@ -4,7 +4,6 @@
 # Written by Collyn Townley, (ytbl) 2023
 import json
 
-# JSON Import/Export
 def file_tracker_read(): # TODO: Import
     file_index = open('index.json', 'r')
     json.loads(file_index)
