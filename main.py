@@ -3,8 +3,8 @@
 # That said, please feel free to contribute to the main project ("yorb-save"), until a license is finalized.
 # Written by Collyn Townley, (ytbl) 2023
 import json
-# import indexer # Not yet.
-from symlinker import add_symlink
+import indexer
+import symlinker
 
 # This is the main bit that asks what you wanna do.
 print(
@@ -26,7 +26,7 @@ def job_selection():
         print("This job is Check Paths")
         exit()
     if job_key == job[2]:
-        add_symlink()
+        symlinker.add_symlink()
     if job_key == job[3]:
         print("This job is Delete Path")
         exit()
