@@ -17,12 +17,12 @@ import json
 def add_symlink():
     archive_path = path.abspath(curdir)
     if disk_usage(archive_path).percent > 98:
-        exit("Insufficent space in archive location to continue. Exiting.")
+        exit("Insufficent space in current location to continue. Exiting.")
     else:
         origin_path = input('Please enter the origin path:')
         dest_path = path.join(archive_path, '') + path.basename(origin_path)
-        move(origin_path,dest_path) 
-        symlink(dest_path,origin_path)   
+        move(origin_path,dest_path)
+        symlink(dest_path,origin_path)
         print('Done!\a')   
         exit('Symlink created at: ' + origin_path)
 
