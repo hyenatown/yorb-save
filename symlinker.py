@@ -12,6 +12,7 @@ import json
 # TODO: Add exception when a linked path is trying to be linked a second time.
 # TODO: Exit if the path is larger than the working directory free space.
 # TODO: Ask if user wants to link another file before trying to exit.
+# TODO: Make a -y switch maybe, or better yet just skipping to the part where the input is automagic.
 
 # Exits with error if remaining disk space is only 2%.
 def add_symlink():
