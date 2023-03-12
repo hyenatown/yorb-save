@@ -24,3 +24,14 @@ def add_symlink():
         symlink(dest_path,origin_path)   
         print('Done!\a')   
         exit('Symlink created at: ' + origin_path)
+
+# TODO: Not finished pseudocode thing. Do not use.
+def remove_symlink():
+    if disk_usage(archive_path).percent > 98:
+        exit("Insufficent space in current location to continue. Exiting.") # <-- This is fine.
+    else:
+        json.loads(thing_to_load) 
+        unlink_question = print("Do you want to restore {} to its original location? Y/N:")
+        if unlink_question == "yes" or "Y": # <-- What?
+            move((archive_path + path.basename(origin_path)), origin_path)
+
