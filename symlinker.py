@@ -7,7 +7,6 @@ from shutil import move
 from psutil import disk_usage
 import json
 
-# TODO: If the operation lasts longer than two seconds, display a progress bar; Find out what module could print a progress bar.
 # TODO: Add exception for linking to a path WITHIN archive_path.
 # TODO: Add exception when a linked path is trying to be linked a second time.
 # TODO: Exit if the path is larger than the working directory free space.
