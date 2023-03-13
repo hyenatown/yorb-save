@@ -15,7 +15,6 @@ print(
     '[4] Open Existing Archive\n'
     '[q] Exit'
 )
-# TODO: This is turning into an if-tree mess so I'll redo it later. It technically works.
 def job_selection():
     job = ['q','1','2','3','4']
     job_key = input("Choose an option: ")
