@@ -26,7 +26,7 @@ def add_symlink():
         print('Done!\a')   
         exit('Symlink created at: ' + origin_path)
 
-# TODO: Not finished pseudocode thing. Do not use.
+#### Psudocode Begins Here ####
 def remove_symlink():
     if int(disk_usage(archive_path).percent) > 98:
         exit("Insufficent space in current location to continue. Exiting.") # <-- This is fine.
