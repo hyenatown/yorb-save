@@ -3,17 +3,28 @@
 # That said, please feel free to contribute to the main project ("yorb-save"), until a license is finalized.
 # Written by Collyn Townley, (ytbl) 2023
 
-import sqlite3 as db
+import sqlite3
 import os
 from time import time
-from symlinker import origin_path
+# from symlinker import origin_path
 
-#### Psudocode Begins Here ####
-def databaseManager():
-    db_key = { f'{origin_path}': {
-        "time_added" : float(f'{time():.2f}'),
-        "time_modified" : origin_path.time_modified,
-        "size" : origin_path.size
-    }}
-    open('repo.db', 'w')
-    
+#### BEGIN Pseudocode ####
+db_key = (
+    f'testing_name',
+    float(f'{time():.2f}'),
+    float(f'{time():.2f}'),
+    1000
+    )
+# db_conn = sqlite3.connect('repo.db')
+db_conn = sqlite3.connect(':memory:')
+db_c = db_conn.cursor()
+db_c.execute("""
+            CREATE TABLE files (
+            origin_path text,
+            time_added float,
+            time_modified float,
+            size float
+            )""")
+db_conn.commit()
+db_conn.close()
+#### END Psudocode ####
