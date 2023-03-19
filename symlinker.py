@@ -16,7 +16,7 @@ import json
 # Exits with error if remaining disk space is only 2%.
 def add_symlink():
     archive_path = path.abspath(curdir)
-    if disk_usage(archive_path).percent > 98:
+    if int(disk_usage(archive_path).percent) > 98:
         exit("Insufficent space in current location to continue. Exiting.")
     else:
         origin_path = input('Please enter the origin path:')
@@ -28,7 +28,7 @@ def add_symlink():
 
 # TODO: Not finished pseudocode thing. Do not use.
 def remove_symlink():
-    if disk_usage(archive_path).percent > 98:
+    if int(disk_usage(archive_path).percent) > 98:
         exit("Insufficent space in current location to continue. Exiting.") # <-- This is fine.
     else:
         json.loads(thing_to_load) 
