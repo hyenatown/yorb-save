@@ -26,7 +26,7 @@ def add_symlink():
         print('Done!\a')   
         exit(f'Symlink created at: {origin_path}')
 
-#### Psudocode Begins Here ####
+#### BEGIN Pseudocode ####
 def remove_symlink():
     if int(disk_usage(archive_path).percent) > 98:
         exit("Insufficent space in current location to continue. Exiting.") # <-- This is fine.
@@ -35,4 +35,4 @@ def remove_symlink():
         unlink_question = print(f'Do you want to restore {thing_to_load} to its original location? Y/N:')
         if unlink_question == "yes" or "Y": # <-- What?
             move((archive_path + path.basename(origin_path)), origin_path)
-####   End of Pseudocode   ####
+#### END Psudocode ####
