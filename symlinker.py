@@ -27,12 +27,20 @@ def add_symlink():
         exit(f'Symlink created at: {origin_path}')
 
 #### BEGIN Pseudocode ####
-def remove_symlink():
-    if int(disk_usage(archive_path).percent) > 98:
-        exit("Insufficent space in current location to continue. Exiting.") # <-- This is fine.
-    else:
-        json.loads(thing_to_load) 
-        unlink_question = print(f'Do you want to restore {thing_to_load} to its original location? Y/N:')
-        if unlink_question == "yes" or "Y": # <-- What?
-            move((archive_path + path.basename(origin_path)), origin_path)
+##TODO: Restrict working_path to just directories.
+#working_path = input("Enter the working directory for this link: ")
+##FIXME: What if instead, we *literally* set a new working directory?
+#relative_path = input("What file (in this directory) will be linked?")
+#origin_path = f'{working_path}{relative_path}'
+#### END Psudocode ####
+
+#### BEGIN Pseudocode ####
+#def remove_symlink():
+#    if int(disk_usage(archive_path).percent) > 98:
+#        exit("Insufficent space in current location to continue. Exiting.") # <-- This is fine.
+#    else:
+#        json.loads(thing_to_load) 
+#        unlink_question = print(f'Do you want to restore {thing_to_load} to its original location? Y/N:')
+#        if unlink_question == "yes" or "Y": # <-- What?
+#            move((archive_path + path.basename(origin_path)), origin_path)
 #### END Psudocode ####
