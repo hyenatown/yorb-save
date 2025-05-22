@@ -17,18 +17,18 @@ def job_selection():
     job = ['q','1','2','3','4']
     job_key = input("Choose an option: ")
     if job_key == job[0]:
-        exit("Bye.")
+        print("Bye.")
+        exit(0)
     if job_key == job[1]:
         print("This job is Check Paths")
-        exit()
+        exit(0)
     if job_key == job[2]:
         symlinker.add_symlink()
     if job_key == job[3]:
-        print("This job is Delete Path")
-        exit()
+        symlinker.rem_symlink()
     if job_key == job[4]:
         print("This job is Open Existing Archive")
-        exit()
+        exit(0)
     else:
         print("Try again.")
         job_selection()

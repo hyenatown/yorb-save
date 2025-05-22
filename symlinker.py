@@ -24,3 +24,16 @@ def add_symlink():
 		print('Done!\a')
 		print(f'Symlink created at: {origin_path}')
 		exit(0)
+
+def rem_symlink():
+	archive_path = path.abspath(curdir)
+	if int(disk_usage(archive_path).percent) > 98:
+		print("Insufficent space in current location to continue. Exiting.")
+		exit(1)
+	else:
+		vault_path = input('Please enter the path of the file you want restored:')
+		origin_path = input('Now, enter the origin path:')
+		remove(origin_path)
+		move(vault_path,origin_path)
+		print(f'File restored to: {origin_path}')
+		exit(0)
