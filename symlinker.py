@@ -9,7 +9,8 @@ from psutil import disk_usage
 def add_symlink():
 	archive_path = path.abspath(curdir)
 	if int(disk_usage(archive_path).percent) > 98:
-		exit("Insufficent space in current location to continue. Exiting.")
+		print("Insufficent space in current location to continue. Exiting.")
+		exit(1)
 	else:
 		origin_path = input('Please enter the origin path:')
 		determined_origin_dir_name = "dummy" # TODO: Create additional method that creates a name based on stuff like location and date.
@@ -20,5 +21,6 @@ def add_symlink():
 			makedirs(dest_path)
 		move(origin_path,dest_file)
 		symlink(dest_file,origin_path)
-		print('Done!\a')   
-		exit(f'Symlink created at: {origin_path}')
+		print('Done!\a')
+		print(f'Symlink created at: {origin_path}')
+		exit(0)
