@@ -2,8 +2,6 @@
 # Contribution is encouraged, but code is not yet to be released.
 # That said, please feel free to contribute to the main project ("yorb-save"), until a license is finalized.
 # Written by Collyn Townley, (ytbl) 2023
-import json
-import indexer
 import symlinker
 
 print(

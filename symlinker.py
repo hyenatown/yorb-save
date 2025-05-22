@@ -2,39 +2,23 @@
 # Contribution is encouraged, but code is not yet to be released.
 # That said, please feel free to contribute to the main project ("yorb-save"), until a license is finalized.
 # Written by Collyn Townley, (ytbl) 2023
-from os import path, symlink, curdir, remove
+from os import path, symlink, curdir, remove, makedirs
 from shutil import move
 from psutil import disk_usage
-import sqlite3 as db
 
-# TODO: Add exception for linking to a path WITHIN archive_path.
-# TODO: Add exception when a linked path is trying to be linked a second time.
-# TODO: Exit if the path is larger than the working directory free space.
-# TODO: Ask if user wants to link another file before trying to exit.
-# TODO: Make a -y switch maybe, or better yet just skipping to the part where the input is automagic.
-
-# Exits with error if remaining disk space is only 2%.
 def add_symlink():
-    archive_path = path.abspath(curdir)
-    if int(disk_usage(archive_path).percent) > 98:
-        exit("Insufficent space in current location to continue. Exiting.")
-    else:
-        origin_path = input('Please enter the origin path:')
-        dest_path = path.join(archive_path, '') + path.basename(origin_path)
-        move(origin_path,dest_path)
-        symlink(dest_path,origin_path)
-        print('Done!\a')   
-        exit(f'Symlink created at: {origin_path}')
-
-#### Psudocode Begins Here ####
-def remove_symlink():
-    if int(disk_usage(archive_path).percent) > 98:
-        exit("Insufficent space in current location to continue. Exiting.") # <-- This is fine.
-    else:
-        #TODO: Give the user option to cancel.
-        db.connect(thing_to_load)
-        for file in thing_to_load:
-            index = 1
-            print(f'[{index + 1}] {file}')
-
-####   End of Pseudocode   ####
+	archive_path = path.abspath(curdir)
+	if int(disk_usage(archive_path).percent) > 98:
+		exit("Insufficent space in current location to continue. Exiting.")
+	else:
+		origin_path = input('Please enter the origin path:')
+		determined_origin_dir_name = "dummy" # TODO: Create additional method that creates a name based on stuff like location and date.
+		dest_path = path.join(archive_path, 'vault', determined_origin_dir_name, '')
+		dest_file = dest_path + path.basename(origin_path)
+		path_exists = path.exists(dest_path)
+		if path_exists is False:
+			makedirs(dest_path)
+		move(origin_path,dest_file)
+		symlink(dest_file,origin_path)
+		print('Done!\a')   
+		exit(f'Symlink created at: {origin_path}')
