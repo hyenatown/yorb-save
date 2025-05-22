@@ -1,2 +1,2 @@
 def dummyPrinto():
-    print ("Nothing.")
+    print("Nothing.")
