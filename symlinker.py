@@ -7,6 +7,7 @@ from os import path, symlink, curdir, remove, makedirs
 from shutil import move
 from psutil import disk_usage
 import indexer
+import datetime
 
 
 def add_symlink():
@@ -19,11 +20,15 @@ def add_symlink():
         determined_origin_dir_name = "dummy"  # TODO: Create additional method that creates a name based on stuff like location and date.
         dest_path = path.join(archive_path, "vault", determined_origin_dir_name, "")
         dest_file = dest_path + path.basename(origin_path)
+        dest_file_basename = path.basename(origin_path)
         path_exists = path.exists(dest_path)
         if path_exists is False:
             makedirs(dest_path)
         move(origin_path, dest_file)
         symlink(dest_file, origin_path)
+        current_date_time = datetime.datetime.now()
+        vault_record = (dest_file_basename, dest_file, current_date_time)
+        indexer.write_to_db(vault_record)
         print("Done!\a")
         print(f"Symlink created at: {origin_path}")
         exit(0)
