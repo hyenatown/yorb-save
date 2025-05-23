@@ -12,7 +12,7 @@ print(
     "[1] Check Paths\n"
     "[2] Link a Path\n"
     "[3] Delete Path\n"
-    "[4] Open Existing Archive\n"
+    "[4] List Links\n"
     "[5] DEBUG: Write blank entry to DB\n"
     "[q] Exit"
 )
@@ -26,21 +26,23 @@ def job_selection():
         exit(0)
     if job_key == job[1]:
         print("This job is Check Paths")
-        exit(0)
+        job_selection()
     if job_key == job[2]:
         symlinker.add_symlink()
+        job_selection()
     if job_key == job[3]:
         symlinker.rem_symlink()
+        job_selection()
     if job_key == job[4]:
-        print("This job is Open Existing Archive")
-        exit(0)
+        indexer.print_current_links()
+        job_selection()
     if job_key == job[5]:
         dest_file_basename = "null"
         dest_file = "null"
         current_date_time = 0
         vault_record = (dest_file_basename, dest_file, current_date_time)
         indexer.write_to_db(vault_record)
-        exit(0)
+        job_selection()
     else:
         print("Try again.")
         job_selection()

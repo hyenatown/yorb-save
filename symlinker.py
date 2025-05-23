@@ -31,7 +31,6 @@ def add_symlink():
         indexer.write_to_db(vault_record)
         print("Done!\a")
         print(f"Symlink created at: {origin_path}")
-        exit(0)
 
 
 def rem_symlink():
@@ -45,14 +44,11 @@ def rem_symlink():
         remove(origin_path)
         move(vault_path, origin_path)
         print(f"File restored to: {origin_path}")
-        exit(0)
 
 
 def add_symlink_auto():
     print("Nothing.")
-    exit(0)
 
 
 def rem_symlink_auto():
     print("Nothing.")
-    exit(0)

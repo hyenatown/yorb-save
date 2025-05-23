@@ -29,3 +29,12 @@ def write_to_db(vault_record):
     cc.execute("INSERT INTO links VALUES (?,?,?)", vault_record)
     c.commit()
     c.close()
+
+
+def print_current_links():
+    c = sqlite3.connect("vault.db")
+    cc = c.cursor()
+    cc.execute("SELECT * FROM links")
+    links = cc.fetchall()
+    for link in links:
+        print(link[0] + " - " + format(link[2]))
