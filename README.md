@@ -1,10 +1,10 @@
 # Yorb
 ## Project Status
 Working on it. Gonna get CLI working before I implement a Qt front-end.
-    - Symlinking
-    - File index
+    - CLI menu [In Progress]
+    - Symlinking [In Progress]
+    - File index [In Progress]
     - Qt GUI
-    - CLI menu
     - Documentation
 
 ### Abstract
