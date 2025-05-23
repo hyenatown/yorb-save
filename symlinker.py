@@ -5,6 +5,7 @@
 from os import path, symlink, curdir, remove, makedirs
 from shutil import move
 from psutil import disk_usage
+import indexer
 
 
 def add_symlink():

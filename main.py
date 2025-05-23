@@ -3,6 +3,7 @@
 # That said, please feel free to contribute to the main project ("yorb-save"), until a license is finalized.
 # Written by Collyn Townley, (ytbl) 2023
 import symlinker
+import indexer
 
 print(
     "Yorb 0.0.1-dev\n"
@@ -11,12 +12,13 @@ print(
     "[2] Link a Path\n"
     "[3] Delete Path\n"
     "[4] Open Existing Archive\n"
+    "[5] DEBUG: Initialize DB\n"
     "[q] Exit"
 )
 
 
 def job_selection():
-    job = ["q", "1", "2", "3", "4"]
+    job = ["q", "1", "2", "3", "4", "5"]
     job_key = input("Choose an option: ")
     if job_key == job[0]:
         print("Bye.")
@@ -31,6 +33,8 @@ def job_selection():
     if job_key == job[4]:
         print("This job is Open Existing Archive")
         exit(0)
+    if job_key == job[5]:
+        indexer.db_init()
     else:
         print("Try again.")
         job_selection()

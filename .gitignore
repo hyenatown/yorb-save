@@ -1,4 +1,6 @@
 .vscode/launch.json
+.directory
+*.db
 __pycache__
 testbed/
 vault/
