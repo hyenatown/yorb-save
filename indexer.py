@@ -37,4 +37,4 @@ def print_current_links():
     cc.execute("SELECT * FROM links")
     links = cc.fetchall()
     for link in links:
-        print(link[0] + " - " + format(link[2]))
+        print(link[0] + "\t" + format(link[2]))
