@@ -1,11 +1,11 @@
 # Yorb
 ## Project Status
 Working on it. Gonna get CLI working before I implement a Qt front-end.
-    - CLI menu [In Progress]
-    - Symlinking [In Progress]
-    - File index [In Progress]
-    - Qt GUI
-    - Documentation
+- CLI menu [In Progress]
+- Symlinking [In Progress]
+- File index [In Progress]
+- Qt GUI
+- Documentation
 
 ### Abstract
 Recently I found that having my save files scattered around the system, either if because they're in a Steam install folder, the configuration or local data directories, or simply somewhere less conventional like /etc - that this was becoming a bit of a pain to keep track of while also maintaining a file backup system that needs to seek out these locations as well.
