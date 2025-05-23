@@ -6,13 +6,6 @@
 import sqlite3
 from os import path
 
-# DEBUG: Initialized but unused consts for debugging.
-base_name = "null"
-entry_path = "null"
-date_added = 0
-date_updated = 0
-
-
 db_exists = path.exists("vault.db")
 if db_exists is False:
     c = sqlite3.connect("vault.db")

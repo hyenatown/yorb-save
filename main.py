@@ -13,14 +13,13 @@ print(
     "[2] Link a Path\n"
     "[3] Delete Path\n"
     "[4] Open Existing Archive\n"
-    "[5] DEBUG: Initialize DB\n"
-    "[6] DEBUG: Write blank entry to DB\n"
+    "[5] DEBUG: Write blank entry to DB\n"
     "[q] Exit"
 )
 
 
 def job_selection():
-    job = ["q", "1", "2", "3", "4", "5", "6"]
+    job = ["q", "1", "2", "3", "4", "5"]
     job_key = input("Choose an option: ")
     if job_key == job[0]:
         print("Bye.")
@@ -36,9 +35,12 @@ def job_selection():
         print("This job is Open Existing Archive")
         exit(0)
     if job_key == job[5]:
-        indexer.db_init()
-    if job_key == job[6]:
-        indexer.write_to_db()
+        dest_file_basename = "null"
+        dest_file = "null"
+        current_date_time = 0
+        vault_record = (dest_file_basename, dest_file, current_date_time)
+        indexer.write_to_db(vault_record)
+        exit(0)
     else:
         print("Try again.")
         job_selection()
