@@ -6,7 +6,7 @@
 from os import path, symlink, curdir, remove, makedirs
 from shutil import move
 from psutil import disk_usage
-import indexer
+import yorb_indexer
 import datetime
 
 
@@ -17,7 +17,9 @@ def add_symlink():
         exit(1)
     else:
         origin_path = input("Please enter the origin path:")
-        determined_origin_dir_name = "dummy"  # TODO: Create additional method that creates a name based on stuff like location and date.
+        determined_origin_dir_name = (
+            "dummy"  # TODO: remove magic word; let user name dir
+        )
         dest_path = path.join(archive_path, "vault", determined_origin_dir_name, "")
         dest_file = dest_path + path.basename(origin_path)
         dest_file_basename = path.basename(origin_path)
@@ -28,7 +30,7 @@ def add_symlink():
         symlink(dest_file, origin_path)
         current_date_time = datetime.datetime.now()
         vault_record = (dest_file_basename, dest_file, current_date_time)
-        indexer.write_to_db(vault_record)
+        yorb_indexer.write_to_db(vault_record)
         print("Done!\a")
         print(f"Symlink created at: {origin_path}")
 

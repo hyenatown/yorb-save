@@ -3,8 +3,8 @@
 # THIS CODE SHALL NOT BE USED FOR ANY TYPE OF GENERATIVE MODEL TRAINING.
 # That said, please feel free to contribute to the main project ("yorb-save"), until a license is finalized.
 # Written by Collyn Townley, (ytbl) 2023
-import symlinker
-import indexer
+import yorb_symlinker
+import yorb_indexer
 
 print(
     "Yorb 0.0.1-dev\n"
@@ -28,20 +28,20 @@ def job_selection():
         print("This job is Check Paths")
         job_selection()
     if job_key == job[2]:
-        symlinker.add_symlink()
+        yorb_symlinker.add_symlink()
         job_selection()
     if job_key == job[3]:
-        symlinker.rem_symlink()
+        yorb_symlinker.rem_symlink()
         job_selection()
     if job_key == job[4]:
-        indexer.print_current_links()
+        yorb_indexer.print_current_links()
         job_selection()
     if job_key == job[5]:
         dest_file_basename = "null"
         dest_file = "null"
         current_date_time = 0
         vault_record = (dest_file_basename, dest_file, current_date_time)
-        indexer.write_to_db(vault_record)
+        yorb_indexer.write_to_db(vault_record)
         job_selection()
     else:
         print("Try again.")

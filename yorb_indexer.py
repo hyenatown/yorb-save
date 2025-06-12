@@ -6,9 +6,9 @@
 import sqlite3
 from os import path
 
-db_exists = path.exists("vault.db")
+db_exists = path.exists("yorb_vault.db")
 if db_exists is False:
-    c = sqlite3.connect("vault.db")
+    c = sqlite3.connect("yorb_vault.db")
     cc = c.cursor()
     cc.execute(
         """CREATE TABLE links (
@@ -24,7 +24,7 @@ if db_exists is False:
 
 
 def write_to_db(vault_record):
-    c = sqlite3.connect("vault.db")
+    c = sqlite3.connect("yorb_vault.db")
     cc = c.cursor()
     cc.execute("INSERT INTO links VALUES (?,?,?)", vault_record)
     c.commit()
@@ -32,7 +32,7 @@ def write_to_db(vault_record):
 
 
 def print_current_links():
-    c = sqlite3.connect("vault.db")
+    c = sqlite3.connect("yorb_vault.db")
     cc = c.cursor()
     cc.execute("SELECT * FROM links")
     links = cc.fetchall()
