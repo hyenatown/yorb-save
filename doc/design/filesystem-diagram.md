@@ -30,7 +30,7 @@ If you're viewing this on GitHub, it will look like crap.
 │                   │   │     │                   │                                    │
 │Guy-Manlove.json◄──┼───┘ ┌───┤Willie-Jabbs.json  │                                    │
 │                   │     │   ├───────────────────┤                                    │
-│Willie-Jabbs.json◄─┼─────┘   │tracked-files.json │                                    │
+│Willie-Jabbs.json◄─┼─────┘   │yorb_vault.db      │                                    │
 │                   │         │                   │                                    │
 │                   │         │                   │                                    │
 └───────────────────┘         │                   │                                    │
