@@ -12,7 +12,7 @@ print(
     "[1] Check Links In Archive\n"
     "[2] Create An Archive\n"
     "[3] Delete An Archive\n"
-    "[4] List All Archives\n"
+    "[4] DEBUG: List All Archives\n"
     "[5] Store Archive To Vault\n"
     "[6] DEBUG: Write blank entry to DB\n"
     "[q] Exit"
@@ -35,7 +35,7 @@ def job_selection():
         yorb_symlinker.delete_archive()
         job_selection()
     if job_key == job[4]:
-        yorb_indexer.list_archives()
+        yorb_indexer.debug_list_archives()
         job_selection()
     if job_key == job[5]:
         print("Store Archive To Vault")

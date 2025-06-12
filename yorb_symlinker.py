@@ -29,7 +29,7 @@ def create_archive():
         current_date_time = datetime.datetime.now()
         archive_db_record = (
             archive_name,
-            dest_file_basename,
+            origin_path,
             dest_file,
             current_date_time,
         )
@@ -44,11 +44,15 @@ def delete_archive():
         print("Insufficent space in current location to continue. Exiting.")
         exit(1)
     else:
-        vault_path = input("Please enter the path of the file you want restored:")
-        origin_path = input("Now, enter the origin path:")
+        yorb_indexer.fetch_all_archives()
+        archive_db_record = input("Select Archive to remove:") #TODO: handle input
+        archive_db_record_entry = yorb_indexer.fetch_selected_archive_record(archive_db_record)
+        vault_path = archive_db_record_entry[2]
+        origin_path = archive_db_record_entry[1]
         remove(origin_path)
         move(vault_path, origin_path)
         print(f"File restored to: {origin_path}")
+        yorb_indexer.delete_archive_record(archive_db_record)
 
 
 def debug_create_dummy_archive_record():
