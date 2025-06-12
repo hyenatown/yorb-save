@@ -49,13 +49,22 @@ def debug_list_archives():
         print(format(link[0]) + "\t" + format(link[1]) + "\t" + format(link[3]))
     c.close()
 
+
 def fetch_all_archives():
     c = sqlite3.connect("yorb.db")
     cc = c.cursor()
     cc.execute("SELECT _rowid_, * FROM archive")
     links = cc.fetchall()
     for link in links:
-        print(format(link[0]) + "\t" + format(link[1]) + "\t" + format(link[2]) + "\t" + format(link[4]))
+        print(
+            format(link[0])
+            + "\t"
+            + format(link[1])
+            + "\t"
+            + format(link[2])
+            + "\t"
+            + format(link[4])
+        )
     if links == []:
         print("The database is empty!")
         c.close()
@@ -64,14 +73,14 @@ def fetch_all_archives():
         c.close()
         return
 
+
 def fetch_selected_archive_record(archive_db_record):
     c = sqlite3.connect("yorb.db")
     cc = c.cursor()
     cc.execute("SELECT * FROM archive WHERE _rowid_ = ?", (archive_db_record))
     archive_db_record_entry = cc.fetchone()
     c.close()
-    return(archive_db_record_entry)
-    
+    return archive_db_record_entry
 
 
 def delete_archive_record(archive_db_record):
