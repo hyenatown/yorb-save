@@ -11,10 +11,11 @@ if db_exists is False:
     c = sqlite3.connect("yorb_vault.db")
     cc = c.cursor()
     cc.execute(
-        """CREATE TABLE links (
-    'base_name' TEXT,
-    'entry_path' TEXT,
-    'date_added' TIMESTAMP
+        """CREATE TABLE "links" (
+	"archive_name"	TEXT,
+	"origin_path_name"	TEXT,
+	"link_path_name"	TEXT,
+	"date_added"	TIMESTAMP
     )"""
     )
     c.commit()
@@ -26,7 +27,7 @@ if db_exists is False:
 def write_to_db(vault_record):
     c = sqlite3.connect("yorb_vault.db")
     cc = c.cursor()
-    cc.execute("INSERT INTO links VALUES (?,?,?)", vault_record)
+    cc.execute("INSERT INTO links VALUES (?,?,?,?)", vault_record)
     c.commit()
     c.close()
 
@@ -37,4 +38,10 @@ def print_current_links():
     cc.execute("SELECT * FROM links")
     links = cc.fetchall()
     for link in links:
-        print(link[0] + "\t" + format(link[2]))
+        print(format(link[0]) + "\t" + format(link[1]) + "\t" + format(link[3]))
+
+
+def remove_from_db():
+    c = sqlite3.connect("yorb_vault.db")
+    cc = c.cursor()
+    cc.execute("DELETE FROM links WHERE ")

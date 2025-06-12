@@ -16,11 +16,9 @@ def add_symlink():
         print("Insufficent space in current location to continue. Exiting.")
         exit(1)
     else:
+        archive_name = input("Give your archive a (unique!) name:")
         origin_path = input("Please enter the origin path:")
-        determined_origin_dir_name = (
-            "dummy"  # TODO: remove magic word; let user name dir
-        )
-        dest_path = path.join(archive_path, "vault", determined_origin_dir_name, "")
+        dest_path = path.join(archive_path, "vault", archive_name, "")
         dest_file = dest_path + path.basename(origin_path)
         dest_file_basename = path.basename(origin_path)
         path_exists = path.exists(dest_path)
@@ -29,7 +27,7 @@ def add_symlink():
         move(origin_path, dest_file)
         symlink(dest_file, origin_path)
         current_date_time = datetime.datetime.now()
-        vault_record = (dest_file_basename, dest_file, current_date_time)
+        vault_record = (archive_name, dest_file_basename, dest_file, current_date_time)
         yorb_indexer.write_to_db(vault_record)
         print("Done!\a")
         print(f"Symlink created at: {origin_path}")
