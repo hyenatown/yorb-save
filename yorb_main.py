@@ -37,11 +37,7 @@ def job_selection():
         yorb_indexer.print_current_links()
         job_selection()
     if job_key == job[5]:
-        dest_file_basename = "null"
-        dest_file = "null"
-        current_date_time = 0
-        vault_record = (dest_file_basename, dest_file, current_date_time)
-        yorb_indexer.write_to_db(vault_record)
+        yorb_symlinker.debug_dummy_symlink()
         job_selection()
     else:
         print("Try again.")

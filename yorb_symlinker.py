@@ -46,6 +46,15 @@ def rem_symlink():
         print(f"File restored to: {origin_path}")
 
 
+def debug_dummy_symlink():
+    archive_name = "null"
+    dest_file_basename = "null"
+    dest_file = "null"
+    current_date_time = datetime.datetime.now()
+    vault_record = (archive_name, dest_file_basename, dest_file, current_date_time)
+    yorb_indexer.write_to_db(vault_record)
+
+
 def add_symlink_auto():
     print("Nothing.")
 
