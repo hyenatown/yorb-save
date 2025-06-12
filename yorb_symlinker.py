@@ -10,15 +10,15 @@ import yorb_indexer
 import datetime
 
 
-def add_symlink():
-    archive_path = path.abspath(curdir)
-    if int(disk_usage(archive_path).percent) > 98:
+def create_archive():
+    vault_path = path.abspath(curdir)
+    if int(disk_usage(vault_path).percent) > 98:
         print("Insufficent space in current location to continue. Exiting.")
         exit(1)
     else:
         archive_name = input("Give your archive a (unique!) name:")
         origin_path = input("Please enter the origin path:")
-        dest_path = path.join(archive_path, "vault", archive_name, "")
+        dest_path = path.join(vault_path, "archive", archive_name, "")
         dest_file = dest_path + path.basename(origin_path)
         dest_file_basename = path.basename(origin_path)
         path_exists = path.exists(dest_path)
@@ -27,15 +27,20 @@ def add_symlink():
         move(origin_path, dest_file)
         symlink(dest_file, origin_path)
         current_date_time = datetime.datetime.now()
-        vault_record = (archive_name, dest_file_basename, dest_file, current_date_time)
-        yorb_indexer.write_to_db(vault_record)
+        archive_db_record = (
+            archive_name,
+            dest_file_basename,
+            dest_file,
+            current_date_time,
+        )
+        yorb_indexer.add_archive_record(archive_db_record)
         print("Done!\a")
         print(f"Symlink created at: {origin_path}")
 
 
-def rem_symlink():
-    archive_path = path.abspath(curdir)
-    if int(disk_usage(archive_path).percent) > 98:
+def delete_archive():
+    vault_path = path.abspath(curdir)
+    if int(disk_usage(vault_path).percent) > 98:
         print("Insufficent space in current location to continue. Exiting.")
         exit(1)
     else:
@@ -46,18 +51,10 @@ def rem_symlink():
         print(f"File restored to: {origin_path}")
 
 
-def debug_dummy_symlink():
+def debug_create_dummy_archive_record():
     archive_name = "null"
     dest_file_basename = "null"
     dest_file = "null"
     current_date_time = datetime.datetime.now()
-    vault_record = (archive_name, dest_file_basename, dest_file, current_date_time)
-    yorb_indexer.write_to_db(vault_record)
-
-
-def add_symlink_auto():
-    print("Nothing.")
-
-
-def rem_symlink_auto():
-    print("Nothing.")
+    archive_db_record = (archive_name, dest_file_basename, dest_file, current_date_time)
+    yorb_indexer.add_archive_record(archive_db_record)

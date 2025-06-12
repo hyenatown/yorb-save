@@ -9,35 +9,39 @@ import yorb_indexer
 print(
     "Yorb 0.0.1-dev\n"
     "Welcome! What do you wish to do?\n"
-    "[1] Check Paths\n"
-    "[2] Link a Path\n"
-    "[3] Delete Path\n"
-    "[4] List Links\n"
-    "[5] DEBUG: Write blank entry to DB\n"
+    "[1] Check Links In Archive\n"
+    "[2] Create An Archive\n"
+    "[3] Delete An Archive\n"
+    "[4] List All Archives\n"
+    "[5] Store Archive To Vault\n"
+    "[6] DEBUG: Write blank entry to DB\n"
     "[q] Exit"
 )
 
 
 def job_selection():
-    job = ["q", "1", "2", "3", "4", "5"]
+    job = ["q", "1", "2", "3", "4", "5", "6"]
     job_key = input("Choose an option: ")
     if job_key == job[0]:
         print("Bye.")
         exit(0)
     if job_key == job[1]:
-        print("This job is Check Paths")
+        print("This job is Check Links in Archive")
         job_selection()
     if job_key == job[2]:
-        yorb_symlinker.add_symlink()
+        yorb_symlinker.create_archive()
         job_selection()
     if job_key == job[3]:
-        yorb_symlinker.rem_symlink()
+        yorb_symlinker.delete_archive()
         job_selection()
     if job_key == job[4]:
-        yorb_indexer.print_current_links()
+        yorb_indexer.list_archives()
         job_selection()
     if job_key == job[5]:
-        yorb_symlinker.debug_dummy_symlink()
+        print("Store Archive To Vault")
+        job_selection()
+    if job_key == job[6]:
+        yorb_symlinker.debug_create_dummy_archive_record()
         job_selection()
     else:
         print("Try again.")

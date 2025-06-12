@@ -6,15 +6,23 @@
 import sqlite3
 from os import path
 
-db_exists = path.exists("yorb_vault.db")
+
+db_exists = path.exists("yorb.db")
 if db_exists is False:
-    c = sqlite3.connect("yorb_vault.db")
+    c = sqlite3.connect("yorb.db")
     cc = c.cursor()
     cc.execute(
-        """CREATE TABLE "links" (
+        """CREATE TABLE "archive" (
 	"archive_name"	TEXT,
 	"origin_path_name"	TEXT,
 	"link_path_name"	TEXT,
+	"date_added"	TIMESTAMP
+    )"""
+    )
+    cc.execute(
+        """CREATE TABLE "vault" (
+	"bundle_name"	TEXT,
+	"archive_name"	TEXT,
 	"date_added"	TIMESTAMP
     )"""
     )
@@ -24,24 +32,24 @@ if db_exists is False:
     exit(0)
 
 
-def write_to_db(vault_record):
-    c = sqlite3.connect("yorb_vault.db")
+def add_archive_record(archive_db_record):
+    c = sqlite3.connect("yorb.db")
     cc = c.cursor()
-    cc.execute("INSERT INTO links VALUES (?,?,?,?)", vault_record)
+    cc.execute("INSERT INTO archive VALUES (?,?,?,?)", archive_db_record)
     c.commit()
     c.close()
 
 
-def print_current_links():
-    c = sqlite3.connect("yorb_vault.db")
+def list_archives():
+    c = sqlite3.connect("yorb.db")
     cc = c.cursor()
-    cc.execute("SELECT * FROM links")
+    cc.execute("SELECT * FROM archive")
     links = cc.fetchall()
     for link in links:
         print(format(link[0]) + "\t" + format(link[1]) + "\t" + format(link[3]))
 
 
-def remove_from_db():
-    c = sqlite3.connect("yorb_vault.db")
+def remove_archive_record():
+    c = sqlite3.connect("yorb.db")
     cc = c.cursor()
-    cc.execute("DELETE FROM links WHERE ")
+    cc.execute("DELETE FROM archive WHERE ")
