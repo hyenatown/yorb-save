@@ -68,10 +68,10 @@ def fetch_all_archives():
     if links == []:
         print("The database is empty!")
         c.close()
-        exit(1)
+        return False
     else:
         c.close()
-        return
+        return True
 
 
 def fetch_selected_archive_record(archive_db_record):
