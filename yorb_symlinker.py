@@ -16,7 +16,11 @@ def create_archive():
         print("Insufficent space in current location to continue. Exiting.")
         exit(1)
     else:
-        archive_name = input("Give your archive a (unique!) name:")
+        archive_name = input("Give your archive a name, or just press ENTER:")
+        if archive_name == "":
+            archive_name = (
+                datetime.datetime.now().isoformat(timespec="minutes").replace(":", "-")
+            )
         origin_path = input("Please enter the origin path:")
         dest_path = path.join(vault_path, "archive", archive_name, "")
         dest_file = dest_path + path.basename(origin_path)
