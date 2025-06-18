@@ -1,0 +1,19 @@
+{
+"issues":
+    [
+        {
+            "id": 0, "state": "Open",
+            "title": "Application doesn't use proper Python naming conventions.",
+            "details": "Modules don't actually use Python package naming. Not a problem right now because I don't plan on publishing this to PyPi.",
+            "tagged": ["Files", "Formatting", "Cleanup"],
+            "priority": -10
+        },
+        {
+            "id": 1, "state": "Open",
+            "title": "GUI Implementation",
+            "details": "Re-write shit for Qt.",
+            "tagged": ["Functionality", "Cleanup"],
+            "priority": -10
+        }
+    ]
+}
