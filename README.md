@@ -15,7 +15,7 @@ My preferred backup software will search recursively through several directories
 
 ### So what will it do?
 First, it creates a place to store the save data ("the Archive").
-Next, the user selects a directory located elsewhere ("Source Directory") to the Archive.
+Next, the user selects a directory located elsewhere ("Source Directory") which will be added to the Archive.
 The user can tick boxes in a list for what files/folders within that directory they wish to have symlinked.
 This is process moves the files to the Archive, and in their place, symlinks.
 Ticking a directory will place a symlink at that location.
@@ -32,7 +32,7 @@ It doesn't connect to the network or cache anything, ideally so you can store yo
 ### What if related files are stored in multiple places?
 To keep it simple, just name Archives in a way that makes sense to you. This also helps compartmentalize save backups.
 
-## What if I move the Archive?
+### What if I move the Archive?
 Not yet implemented, but you could click a button and Yorb will just recreate the necessary symlinks.
 
 ### Conflicts. What about them?
