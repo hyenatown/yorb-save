@@ -6,41 +6,49 @@
 import yorb_symlinker
 import yorb_indexer
 
-print(
-    "Yorb 0.0.1-dev\n"
-    "Welcome! What do you wish to do?\n"
-    "[1] Check Links In Archive\n"
-    "[2] Create An Archive\n"
-    "[3] Delete An Archive\n"
-    "[4] DEBUG: List All Archives\n"
-    "[5] Store Archive To Vault\n"
-    "[6] DEBUG: Write blank entry to DB\n"
-    "[q] Exit"
-)
+
+def print_menu():
+    print(
+        "Yorb 0.0.2-dev\n"
+        "Welcome! What do you wish to do?\n"
+        "[m] Print This Menu\n"
+        "[1] Check Links In Archive\n"
+        "[2] Create An Archive\n"
+        "[3] Delete An Archive\n"
+        "[4] DEBUG: List All Archives\n"
+        "[5] Store Archive To Vault\n"
+        "[6] DEBUG: Write blank entry to DB\n"
+        "[q] Exit"
+    )
+
+
+print_menu()
 
 
 def job_selection():
-    job = ["q", "1", "2", "3", "4", "5", "6"]
+    job = ["m", "q", "1", "2", "3", "4", "5", "6"]
     job_key = input("Choose an option: ")
     if job_key == job[0]:
+        print_menu()
+    if job_key == job[1]:
         print("Bye.")
         exit(0)
-    if job_key == job[1]:
+    if job_key == job[2]:
         print("This job is Check Links in Archive")
         job_selection()
-    if job_key == job[2]:
+    if job_key == job[3]:
         yorb_symlinker.create_archive()
         job_selection()
-    if job_key == job[3]:
+    if job_key == job[4]:
         yorb_symlinker.delete_archive()
         job_selection()
-    if job_key == job[4]:
+    if job_key == job[5]:
         yorb_indexer.debug_list_archives()
         job_selection()
-    if job_key == job[5]:
+    if job_key == job[6]:
         print("Store Archive To Vault")
         job_selection()
-    if job_key == job[6]:
+    if job_key == job[7]:
         yorb_symlinker.debug_create_dummy_archive_record()
         job_selection()
     else:
