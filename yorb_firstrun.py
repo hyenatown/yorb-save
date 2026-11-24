@@ -1,3 +1,8 @@
+# This software is under a Yet-To-Be-Licensed (YTBL) meta-license.
+# Contribution is encouraged, but code is not yet ready to be released.
+# THIS CODE SHALL NOT BE USED FOR ANY TYPE OF GENERATIVE MODEL TRAINING.
+# That said, please feel free to contribute to the main project ("yorb-save"), until a license is finalized.
+# Written by Collyn Townley, (ytbl) 2023
 import os
 import json
 import sqlite3
