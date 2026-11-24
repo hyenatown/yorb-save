@@ -22,6 +22,8 @@ def create_archive():
                 datetime.datetime.now().isoformat(timespec="minutes").replace(":", "-")
             )
         origin_path = input("Please enter the origin path:")
+        origin_path = origin_path.strip("'")
+        origin_path = origin_path.strip('"')
         dest_path = path.join(vault_path, "archive", archive_name, "")
         dest_file = dest_path + path.basename(origin_path)
         dest_file_basename = path.basename(origin_path)
