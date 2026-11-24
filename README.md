@@ -1,4 +1,5 @@
-# Yorb
+![](doc/yorb-ghbanner.png)
+
 ## Project Status
 Working on it. Gonna get CLI working before I implement a Qt front-end.
 - CLI menu [In Progress]
