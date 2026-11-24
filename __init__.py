@@ -5,7 +5,9 @@
 # Written by Collyn Townley, (ytbl) 2023
 import yorb_symlinker
 import yorb_indexer
+import yorb_firstrun
 
+yorb_firstrun.situ_test()
 
 def print_menu():
     print(

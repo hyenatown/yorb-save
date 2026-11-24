@@ -1,7 +1,8 @@
+__pycache__
 .vscode/launch.json
 .directory
 *.db
-__pycache__
+*.json
 testbed/
 vault/
 archive/
