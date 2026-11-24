@@ -1,2 +1,3 @@
 psutil
 black
+pytest
