@@ -9,6 +9,7 @@ import yorb_firstrun
 
 yorb_firstrun.situ_test()
 
+
 def print_menu():
     print(
         "Yorb 0.0.2-dev\n"

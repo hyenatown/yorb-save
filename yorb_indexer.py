@@ -6,6 +6,7 @@
 import sqlite3
 from os import path
 
+
 def add_archive_record(archive_db_record):
     c = sqlite3.connect("yorb.db")
     cc = c.cursor()
