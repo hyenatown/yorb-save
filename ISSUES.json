@@ -14,13 +14,20 @@
             "details": "Re-write shit for Qt.",
             "tagged": ["Functionality", "Cleanup"],
             "priority": -10
-        }
+        },
         {
             "id": 2, "state": "Open",
             "title": "Learn: Python Env Management",
             "details": "I'd like to make it so I know how to (re)setup venv and that without it being a giant hassle.",
             "tagged": ["Learning", "Cleanup"],
             "priority": 0
+        },
+        {
+            "id": 3, "state": "Open",
+            "title": "Feature: Persistent settings.",
+            "details": "Adding settings via settings.json, just so that I can do some stuff later like having a custom directory set.",
+            "tagged": ["Functionality", "Files"],
+            "priority": -10
         }
     ]
 }
