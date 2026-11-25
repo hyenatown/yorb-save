@@ -7,22 +7,19 @@ import os
 import json
 import sqlite3
 
-
 def situ_test():
     if os.path.exists("settings.json") is True:
         pass
     else:
         defaults = {"firstrun": True, "archive_loc": "archive", "vault_loc": "vault"}
         dir_fd = os.open(".", os.O_RDONLY)
-
         def opener(path, flags):
             return os.open(path, flags, dir_fd=dir_fd)
-
         with open("settings.json", "w", opener=opener) as f:
             print(json.dumps(defaults), file=f)
         os.close(dir_fd)
-    db_exists = os.path.exists("yorb.db")
-    if db_exists is True:
+
+    if os.path.exists("yorb.db") is True:
         pass
     else:
         c = sqlite3.connect("yorb.db")
@@ -40,5 +37,3 @@ def situ_test():
         )""")
         c.commit()
         c.close()
-        print("Database initialized. Run me again.")
-        exit(0)

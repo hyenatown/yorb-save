@@ -9,7 +9,6 @@ import yorb_firstrun
 
 yorb_firstrun.situ_test()
 
-
 def print_menu():
     print(
         "Yorb 0.0.2-dev\n"
@@ -23,10 +22,7 @@ def print_menu():
         "[6] DEBUG: Write blank entry to DB\n"
         "[q] Exit"
     )
-
-
 print_menu()
-
 
 def job_selection():
     job = ["m", "q", "1", "2", "3", "4", "5", "6"]
@@ -37,13 +33,13 @@ def job_selection():
         print("Bye.")
         exit(0)
     if job_key == job[2]:
-        yorb_symlinker.check_archive_files()
+        yorb_symlinker.archive_check_files()
         job_selection()
     if job_key == job[3]:
-        yorb_symlinker.create_archive()
+        yorb_symlinker.archive_create()
         job_selection()
     if job_key == job[4]:
-        yorb_symlinker.delete_archive()
+        yorb_symlinker.archive_delete()
         job_selection()
     if job_key == job[5]:
         yorb_indexer.debug_list_archives()
@@ -52,11 +48,9 @@ def job_selection():
         print("Store Archive To Vault")
         job_selection()
     if job_key == job[7]:
-        yorb_symlinker.debug_create_dummy_archive_record()
+        yorb_symlinker.debug_create_dummy_record()
         job_selection()
     else:
         print("Try again.")
         job_selection()
-
-
 job_selection()

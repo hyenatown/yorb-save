@@ -10,8 +10,7 @@ import yorb_indexer
 import datetime
 import sqlite3
 
-
-def create_archive():
+def archive_create():
     vault_path = path.abspath(curdir)
     if int(disk_usage(vault_path).percent) > 98:
         print("Insufficent space in current location to continue. Exiting.")
@@ -40,22 +39,21 @@ def create_archive():
             dest_file,
             current_date_time,
         )
-        yorb_indexer.add_archive_record(archive_db_record)
+        yorb_indexer.archive_record_add(archive_db_record)
         print("Done!\a")
         print(f"Symlink created at: {origin_path}")
 
-
-def delete_archive():
+def archive_delete():
     vault_path = path.abspath(curdir)
     if int(disk_usage(vault_path).percent) > 98:
         print("Insufficent space in current location to continue. Exiting.")
         exit(1)
     else:
-        if yorb_indexer.fetch_all_archives() == False:
+        if yorb_indexer.archive_fetch_all() == False:
             return
         else:
             archive_db_record = input("Select Archive to remove:")
-            archive_db_record_entry = yorb_indexer.fetch_selected_archive_record(
+            archive_db_record_entry = yorb_indexer.archive_fetch_selected(
                 archive_db_record
             )
             vault_path = archive_db_record_entry[2]
@@ -66,10 +64,9 @@ def delete_archive():
             # if path.exists(vault_path) == True: # Something like this where there's a
             #     rmdir(path.dirname(vault_path)) # check for contents before executing.
             print(f"File restored to: {origin_path}")
-            yorb_indexer.delete_archive_record(archive_db_record)
+            yorb_indexer.archive_record_delete(archive_db_record)
 
-
-def check_archive_files():
+def archive_check_files():
     vault_path = path.abspath(curdir)
     if int(disk_usage(vault_path).percent) > 98:
         print("Insufficent space in current location to continue. Exiting.")
@@ -86,11 +83,10 @@ def check_archive_files():
             path.exists(q[2])
         c.close()
 
-
-def debug_create_dummy_archive_record():
+def debug_create_dummy_record():
     archive_name = "null"
     dest_file_basename = "null"
     dest_file = "null"
     current_date_time = datetime.datetime.now()
     archive_db_record = (archive_name, dest_file_basename, dest_file, current_date_time)
-    yorb_indexer.add_archive_record(archive_db_record)
+    yorb_indexer.archive_record_add(archive_db_record)
