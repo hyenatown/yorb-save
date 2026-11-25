@@ -54,7 +54,7 @@ def delete_archive():
         if yorb_indexer.fetch_all_archives() == False:
             return
         else:
-            archive_db_record = input("Select Archive to remove:")  # TODO: handle input
+            archive_db_record = input("Select Archive to remove:")
             archive_db_record_entry = yorb_indexer.fetch_selected_archive_record(
                 archive_db_record
             )
@@ -62,7 +62,9 @@ def delete_archive():
             origin_path = archive_db_record_entry[1]
             remove(origin_path)
             move(vault_path, origin_path)
-            rmdir(path.dirname(vault_path))
+            rmdir(path.dirname(vault_path))  # TODO: Errno 39 Directory Not Empty
+            # if path.exists(vault_path) == True: # Something like this where there's a
+            #     rmdir(path.dirname(vault_path)) # check for contents before executing.
             print(f"File restored to: {origin_path}")
             yorb_indexer.delete_archive_record(archive_db_record)
 
