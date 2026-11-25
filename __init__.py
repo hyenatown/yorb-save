@@ -37,7 +37,7 @@ def job_selection():
         print("Bye.")
         exit(0)
     if job_key == job[2]:
-        print("This job is Check Links in Archive")
+        yorb_symlinker.check_archive_files()
         job_selection()
     if job_key == job[3]:
         yorb_symlinker.create_archive()

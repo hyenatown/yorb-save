@@ -8,6 +8,7 @@ from shutil import move
 from psutil import disk_usage
 import yorb_indexer
 import datetime
+import sqlite3
 
 
 def create_archive():
@@ -64,6 +65,24 @@ def delete_archive():
             rmdir(path.dirname(vault_path))
             print(f"File restored to: {origin_path}")
             yorb_indexer.delete_archive_record(archive_db_record)
+
+
+def check_archive_files():
+    vault_path = path.abspath(curdir)
+    if int(disk_usage(vault_path).percent) > 98:
+        print("Insufficent space in current location to continue. Exiting.")
+        exit(1)
+    else:
+        c = sqlite3.connect("yorb.db")
+        cc = c.cursor()
+        cc.execute("SELECT * FROM archive")
+        fa = cc.fetchall()
+        print("DEBUG: " + str(fa))
+        for row in enumerate(fa):
+            q = row[1]
+            print(f"DEBUG:" + q[2])
+            path.exists(q[2])
+        c.close()
 
 
 def debug_create_dummy_archive_record():
