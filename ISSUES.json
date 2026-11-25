@@ -35,6 +35,13 @@
             "details": "If two linked files share the same folder then it'll throw an error that the directory is not empty. Otherwise, it works fine.",
             "tagged": ["Functionality", "Files"],
             "priority": 10
+        },
+         {
+            "id": 5, "state": "Open",
+            "title": "Prevent invalid paths",
+            "details": "You can insert an arbitrary line and it will work. Needs a *try*.",
+            "tagged": ["Functionality", "Files"],
+            "priority": 10
         }
     ]
 }
