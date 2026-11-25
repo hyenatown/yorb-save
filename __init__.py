@@ -9,7 +9,7 @@ import sqlite3
 import yorb_symlinker
 import yorb_indexer
 
-def situ_test():
+def situ_settings():
     if os.path.exists("settings.json") is True:
         pass
     else:
@@ -20,7 +20,9 @@ def situ_test():
         with open("settings.json", "w", opener=opener) as f:
             print(json.dumps(defaults), file=f)
         os.close(dir_fd)
+situ_settings()
 
+def situ_dbinit():
     if os.path.exists("yorb.db") is True:
         pass
     else:
@@ -39,7 +41,7 @@ def situ_test():
         )""")
         c.commit()
         c.close()
-situ_test()
+situ_dbinit()
 
 def print_menu():
     print(
