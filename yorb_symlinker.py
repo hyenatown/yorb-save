@@ -49,7 +49,7 @@ def archive_delete():
         print("Insufficent space in current location to continue. Exiting.")
         exit(1)
     else:
-        if yorb_indexer.archive_fetch_all() == False:
+        if yorb_indexer.archive_fetch_print() == False:
             return
         else:
             archive_db_record = input("Select Archive to remove:")

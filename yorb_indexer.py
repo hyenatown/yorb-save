@@ -25,16 +25,6 @@ def archive_fetch_all():
     cc = c.cursor()
     cc.execute("SELECT _rowid_, * FROM archive")
     links = cc.fetchall()
-    for link in links:
-        print(
-            format(link[0])
-            + "\t"
-            + format(link[1])
-            + "\t"
-            + format(link[2])
-            + "\t"
-            + format(link[4])
-        )
     if links == []:
         print("You have no archives!")
         c.close()
@@ -43,18 +33,24 @@ def archive_fetch_all():
         c.close()
         return True, links
 
-def archive_fetch_all_noprint():
-    c = sqlite3.connect("yorb.db")
-    cc = c.cursor()
-    cc.execute("SELECT _rowid_, * FROM archive")
-    links = cc.fetchall()
-    if links == []:
+def archive_fetch_print():
+    links = archive_fetch_all()
+    if links[0] == False:
         print("You have no archives!")
         c.close()
         return False
     else:
-        c.close()
-        return True, links
+        for link in links[1]:
+            print(
+                format(link[0])
+                + "\t"
+                + format(link[1])
+                + "\t"
+                + format(link[2])
+                + "\t"
+                + format(link[4])
+            )
+        return True
 
 def archive_fetch_selected(archive_db_record):
     c = sqlite3.connect("yorb.db")
