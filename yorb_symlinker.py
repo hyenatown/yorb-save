@@ -72,16 +72,23 @@ def archive_check_files():
         print("Insufficent space in current location to continue. Exiting.")
         exit(1)
     else:
-        c = sqlite3.connect("yorb.db")
-        cc = c.cursor()
-        cc.execute("SELECT * FROM archive")
-        fa = cc.fetchall()
-        print("DEBUG: " + str(fa))
-        for row in enumerate(fa):
-            q = row[1]
-            print(f"DEBUG:" + q[2])
-            path.exists(q[2])
-        c.close()
+        fa = yorb_indexer.archive_fetch_all_noprint()
+        if fa[0] == False:
+            return
+        else:
+            for row in enumerate(fa[1]):
+                q = row[1]
+                if path.exists(q[2]) == False:
+                    key = input(f"⚠️  " + q[2] + "\nRecord not found. Delete? Y/n: ")
+                    if key == "y" or key == "Y" or key == "":
+                        print("You selected YES.")
+                        pass
+                        #yorb_indexer.archive_record_delete()
+                    elif key == "n" or key == "N":
+                        print("You selected NO.")
+                        pass
+                    else:
+                        print("Try again.")
 
 def debug_create_dummy_record():
     archive_name = "null"
