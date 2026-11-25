@@ -3,11 +3,43 @@
 # THIS CODE SHALL NOT BE USED FOR ANY TYPE OF GENERATIVE MODEL TRAINING.
 # That said, please feel free to contribute to the main project ("yorb-save"), until a license is finalized.
 # Written by Collyn Townley, (ytbl) 2023
+import os
+import json
+import sqlite3
 import yorb_symlinker
 import yorb_indexer
-import yorb_firstrun
 
-yorb_firstrun.situ_test()
+def situ_test():
+    if os.path.exists("settings.json") is True:
+        pass
+    else:
+        defaults = {"firstrun": True, "archive_loc": "archive", "vault_loc": "vault"}
+        dir_fd = os.open(".", os.O_RDONLY)
+        def opener(path, flags):
+            return os.open(path, flags, dir_fd=dir_fd)
+        with open("settings.json", "w", opener=opener) as f:
+            print(json.dumps(defaults), file=f)
+        os.close(dir_fd)
+
+    if os.path.exists("yorb.db") is True:
+        pass
+    else:
+        c = sqlite3.connect("yorb.db")
+        cc = c.cursor()
+        cc.execute("""CREATE TABLE "archive" (
+    	"archive_name"	TEXT,
+    	"origin_path_name"	TEXT,
+    	"link_path_name"	TEXT,
+    	"date_added"	TIMESTAMP
+        )""")
+        cc.execute("""CREATE TABLE "vault" (
+    	"bundle_name"	TEXT,
+    	"archive_name"	TEXT,
+    	"date_added"	TIMESTAMP
+        )""")
+        c.commit()
+        c.close()
+situ_test()
 
 def print_menu():
     print(
@@ -25,11 +57,11 @@ def print_menu():
 print_menu()
 
 def job_selection():
-    job = ["m", "q", "1", "2", "3", "4", "5", "6"]
+    job = ["m", "q", "1", "2", "3", "4", "5", "6", "exit", "quit"]
     job_key = input("Choose an option: ")
     if job_key == job[0]:
         print_menu()
-    if job_key == job[1]:
+    if job_key == job[1] or job_key == job[8] or job_key == job[9]:
         print("Bye.")
         exit(0)
     if job_key == job[2]:

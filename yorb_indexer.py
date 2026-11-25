@@ -13,13 +13,11 @@ def archive_record_add(archive_db_record):
     c.commit()
     c.close()
 
-def debug_list_archives():
+def archive_record_delete(archive_db_record):
     c = sqlite3.connect("yorb.db")
     cc = c.cursor()
-    cc.execute("SELECT * FROM archive")
-    links = cc.fetchall()
-    for link in links:
-        print(format(link[0]) + "\t" + format(link[1]) + "\t" + format(link[3]))
+    cc.execute("DELETE FROM archive WHERE _rowid_ = ?", (archive_db_record))
+    c.commit()
     c.close()
 
 def archive_fetch_all():
@@ -53,9 +51,11 @@ def archive_fetch_selected(archive_db_record):
     c.close()
     return archive_db_record_entry
 
-def archive_record_delete(archive_db_record):
+def debug_list_archives():
     c = sqlite3.connect("yorb.db")
     cc = c.cursor()
-    cc.execute("DELETE FROM archive WHERE _rowid_ = ?", (archive_db_record))
-    c.commit()
+    cc.execute("SELECT * FROM archive")
+    links = cc.fetchall()
+    for link in links:
+        print(format(link[0]) + "\t" + format(link[1]) + "\t" + format(link[3]))
     c.close()
